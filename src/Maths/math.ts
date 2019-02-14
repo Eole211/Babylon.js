@@ -3897,11 +3897,17 @@ export class Quaternion {
      * @returns the current updated quaternion
      */
     public normalize(): Quaternion {
-        var length = 1.0 / this.length();
-        this.x *= length;
-        this.y *= length;
-        this.z *= length;
-        this.w *= length;
+        var len = this.length();
+
+        if (len === 0) {
+            return this;
+        }
+
+        var num = 1.0 / len;
+        this.x *= num;
+        this.y *= num;
+        this.z *= num;
+        this.w *= num;
         return this;
     }
 
