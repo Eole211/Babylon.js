@@ -3192,7 +3192,12 @@ export class Vector4 {
             return this;
         }
 
-        return this.scaleInPlace(1.0 / len);
+        var inv = 1.0 / len;
+        this.x *= inv;
+        this.y *= inv;
+        this.z *= inv;
+        this.w *= inv;
+        return this;
     }
 
     /**
